@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle de Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="cabecalhoConteudo">
+            <h1>Sistema de Controle de Tarefas</h1>
+            <button id="botaoTema" class="botaoTema" type="button" aria-pressed="false">🌙 Modo escuro</button>
+        </div>
+    </header>
+
+    <main>
+        <h2>Resumo das Tarefas</h2>
+        <section class="dashboard" aria-label="Resumo das tarefas">
+            <div class="total"><h3>Total</h3><strong id="totalTarefas">0</strong></div>
+            <div class="pendentes"><h3>Pendentes</h3><strong id="tarefasPendentes">0</strong></div>
+            <div class="concluidas"><h3>Concluídas</h3><strong id="tarefasConcluidas">0</strong></div>
+        </section>
+
+        <section class="secaoTarefa">
+            <h2>Nova Tarefa</h2>
+            <form id="formTarefa" novalidate>
+                <label for="nomeTarefa">Nome da tarefa</label>
+                <input id="nomeTarefa" type="text" placeholder="Ex.: Estudar JavaScript" maxlength="100">
+
+                <label for="descricaoTarefa">Descrição (opcional)</label>
+                <textarea id="descricaoTarefa" rows="3" placeholder="Escreva os detalhes da tarefa..."></textarea>
+
+                <p id="mensagemErro" class="mensagemErro" role="alert" aria-live="polite"></p>
+                <button type="submit" class="adicionar">Adicionar Tarefa +</button>
+            </form>
+        </section>
+
+        <section class="secaoMinhasTarefas">
+            <h2>Minhas Tarefas</h2>
+            <div id="listaTarefas" class="listaTarefas"></div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 Sistema de Controle de Tarefas</p></footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
