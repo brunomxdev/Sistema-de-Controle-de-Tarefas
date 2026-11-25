@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #ebebeb;
+    --texto: #252525;
+    --cartao: #ffffff;
+    --borda: #c4c4c4;
+    --campo-borda: #bbbbbb;
+    --secundario: #666666;
+    --azul: #2020df;
+    --azul-hover: #1010a0;
+    --erro: #bd2525;
+}
+
+body.temaEscuro {
+    --fundo: #151923;
+    --texto: #f1f3f9;
+    --cartao: #242b38;
+    --borda: #485162;
+    --campo-borda: #657085;
+    --secundario: #c1c8d4;
+    --azul: #929bff;
+    --azul-hover: #b0b6ff;
+    --erro: #ff9292;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    transition: background .2s, color .2s;
+}
+
+.cabecalhoConteudo {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.botaoTema {
+    background: #ffffff;
+    color: #2020a0;
+    border: 1px solid #ffffff;
+    white-space: nowrap;
+}
+
+.botaoTema:hover {
+    background: #e9eaff;
+}
+
+body.temaEscuro .botaoTema {
+    background: #252b48;
+    color: #ffffff;
+    border-color: #a7adff;
+}
+
+body.temaEscuro .botaoTema:hover {
+    background: #353d63;
+}
+
+header, footer {
+    background: rgb(83, 83, 240);
+    color: white;
+    padding: 22px;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 18px;
+}
+
+h2 {
+    margin-bottom: 18px;
+    font-size: 23px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.dashboard > div {
+    background: var(--cartao);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: -5px 0 blue;
+}
+
+.dashboard .pendentes {
+    box-shadow: -5px 0 #dc4545;
+}
+
+.dashboard .concluidas {
+    box-shadow: -5px 0 #2e9d60;
+}
+
+.dashboard h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.dashboard strong {
+    font-size: 30px;
+}
+
+.secaoTarefa, .secaoMinhasTarefas {
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+#formTarefa {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#formTarefa label {
+    font-weight: bold;
+}
+
+#formTarefa input, #formTarefa textarea {
+    width: 100%;
+    border: 1px solid var(--campo-borda);
+    border-radius: 10px;
+    padding: 13px;
+    font: inherit;
+    background: var(--cartao);
+    color: var(--texto);
+}
+
+#formTarefa input::placeholder,
+#formTarefa textarea::placeholder {
+    color: var(--secundario);
+}
+
+#formTarefa textarea {
+    resize: vertical;
+}
+
+.mensagemErro {
+    color: var(--erro);
+    min-height: 18px;
+    font-size: 14px;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 11px 15px;
+    font: inherit;
+    transition: background .2s;
+}
+
+.adicionar {
+    align-self: flex-end;
+    background: #2020df;
+    color: white;
+    border: 0;
+}
+
+.adicionar:hover {
+    background: #00009d;
+}
+
+.listaTarefas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    gap: 18px;
+}
+
+.cardTarefas {
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    box-shadow: -5px 0 #dc4545;
+    padding: 20px;
+    overflow-wrap: anywhere;
+}
+
+.cardTarefas h3, .cardTarefas p {
+    margin-bottom: 12px;
+}
+
+.cardTarefas.concluida {
+    box-shadow: -5px 0 #2e9d60;
+}
+
+.cardTarefas.concluida h3 {
+    text-decoration: line-through;
+}
+
+.btnCard {
+    display: flex;
+    gap: 10px;
+}
+
+.btnCard button {
+    flex: 1;
+    background: var(--cartao);
+}
+
+.btnConcluir {
+    border: 2px solid var(--azul);
+    color: var(--azul);
+}
+
+.btnConcluir:hover {
+    background: #2020df;
+    color: white;
+}
+
+.btnExcluir {
+    border: 2px solid #c82929;
+    color: #c82929;
+}
+
+.btnExcluir:hover {
+    background: #c82929;
+    color: white;
+}
+
+.avisoVazio {
+    color: var(--secundario);
+}
+
+footer {
+    text-align: center;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #e7a83d;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 21px;
+    }
+
+    .cabecalhoConteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard {
+        gap: 10px;
+    }
+
+    .dashboard > div {
+        padding: 13px;
+    }
+
+    .dashboard h3 {
+        font-size: 13px;
+    }
+
+    .dashboard strong {
+        font-size: 23px;
+    }
+
+    .secaoTarefa, .secaoMinhasTarefas {
+        padding: 17px;
+    }
+}
